@@ -1,0 +1,27 @@
+
+Source Selection
+======================================
+
+The primary source for the catalog object list is  the Green's SNR catalog [1]_,
+which includes 294 individual SNR objects. The Green's catalog 
+is then  augmented by the LMC and SMC SNRs as provided by the SIMBAD astronomical 
+source database [2]_. In addition, the source list contains two sources G023.5+00.1 
+(galactic SNR not included in the Green's catalog) and SN 2014J (extragalactic SN).
+
+To construct the SNR lists for LMC and SMC we querried the SIMBAD database
+to yeild the SNR sources (otype parameter is set to 'SNR') within the circlular
+region centered on coordinates RA=05 23 34.6 DEC=-69 45 22 with radius of 11 
+degrees for  the LMC and RA=00 52 38.0, DEC -72 48 01 with radius of 
+5.5 degrees for SMC. This procedure yielded 118 and 35 individual 
+sources  for SMC and LMC correspondingly.
+
+Therefore, the initial list used for the Suzaku observation selection contained
+449 objects. This initial list was then cross-correlated with the Suzaku Master Table [3]_ 
+to get the list of object observed by Suzaku. 
+
+The process of the observations selection is described 
+in the next section.
+
+.. [1] https://heasarc.gsfc.nasa.gov/W3Browse/all/snrgreen.html
+.. [2] http://simbad.u-strasbg.fr/simbad/
+.. [3] http://heasarc.gsfc.nasa.gov/w3browse/all/suzamaster.html

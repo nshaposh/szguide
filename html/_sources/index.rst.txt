@@ -1,0 +1,25 @@
+.. snrcatalog documentation master file, created by
+   sphinx-quickstart on Sat Feb 18 10:34:24 2017.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to Suzaku SNR Catalog's documentation!
+======================================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Table of Contents:
+
+   Introduction<intro>
+   Source Selection<sources>
+   Observation Selection<observations>
+   Data Reduction<procedure>
+   Data Product<products>
+   Specral Modeling<modeling>
+   Emission Line Database<lines>
+   ...
+
+Search
+==================
+
+* :ref:`search`

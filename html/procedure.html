@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Data Reduction Procedure &#8212; Suzaku Supernova Catalog  documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Data Analysis" href="analysis.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="analysis.html" title="Data Analysis"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Suzaku Supernova Catalog  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="analysis.html" accesskey="U">Data Analysis</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="data-reduction-procedure">
+<h1>Data Reduction Procedure<a class="headerlink" href="#data-reduction-procedure" title="Permalink to this headline">¶</a></h1>
+<p>To extract data products for the catalog we developed an automated analysis pipeline, implemented as PERL script aexispipe. The particular analysis procedure is controlled by the script parameters. Where appropriate, we give the corresponding analysis options, which responsible for a certain analysis setting. We also list the analysis script settings in a separate section below. The presented analysis attempts to perform XISdata analysis as described in the Suzaku Data Reduction Guide (aka &#8216;&#8217;ABC Guide&#8217;&#8216;). Within this pipeline we have implemented the following analysis steps:</p>
+<p>1. Observation sequence data download via FTP and initial reprocessing with the Suzaku FTOOL aepipeline.</p>
+<p>2. Clean event list production. This step involves filtering out events recorded by flickering pixels. Regions, containing information on the flickering pixels for particular XIS and CI mode are downloaded from JAXA page at <a class="reference external" href="http://www.astro.isas.jaxa.jp/suzaku/analysis/xis/nxb_new/">http://www.astro.isas.jaxa.jp/suzaku/analysis/xis/nxb_new/</a> and applied to the reprocessed cleaned event files produced at the previous step. </p>
+<p>3. Creating and smoothing  XIS image.</p>
+<p>4. Generating the spectral extraction regions.5. Extract spectra for X-ray source and background regions using xselect.</p>
+<p>6. Extract spectra and images of the XIS instrumental background commonly referred to as a Non X-ray Background (NXB) using xisnxbgen. NXB event files have also flickerring pixels removed using the region filtering. For convenience and to speed up analysis we have produced pre-filtered NXB event files from the files provided in the calibration database and use these prefiltered files during the analysis.</p>
+<p>7. Create XIS detector response for the observation and ancillary response (ARF) for the set of regions using xisrmfgen and xissimarfgen correspondingly. Depending on a particular nature of the source we employ three different prescriptions for the ARF calculations, which we refer to as &#8220;UNIFORM&#8221;, &#8220;POINT&#8221; and &#8220;IMAGE&#8221;. In the first (&#8220;UNIFORM&#8221; source) approach, the source is assumed to be uniform over the sky. Actual ray-tracing simulations in xissimarfgen models the 3×106 input photons coming from the sky region extending 20 arc seconds beyond the XIS field of view. In the &#8220;POINT&#8221; prescription, we assume a point source at the specified object sky location and model 4×105 photons. In the last, i.e. &#8220;IMAGE&#8221; setting, the actual XIS source image is supplied as source configuration and 3×106 are simulated.</p>
+<p>8. Produce rebinned spectra and responses using the standard binning pattern. Namely, 4096 unbinned channels are rebinned to 2048 channels by binning channels between 700 and 2696 with factor of 2 and channels between 2696 and 4096 with factor of 4. We perform this step using rbnpha and rbnrmf FTOOLs respectively.</p>
+<p>9. NXB subtracted spectra are produced by subtracting the source spectra and NXB spectra with mathpha FTOOL.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="analysis.html"
+                        title="previous chapter">Data Analysis</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/procedure.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="analysis.html" title="Data Analysis"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Suzaku Supernova Catalog  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="analysis.html" >Data Analysis</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Nikolai Shaposhnikov, Lorella Angelini.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

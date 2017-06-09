@@ -1,0 +1,24 @@
+
+Observation Selection
+======================================
+
+Initial list of observations for the catalog analysis included all the sources
+which field of view covered a part of a source either fully or partially.
+This was done by searching the entire set Suzaku observations, creating
+XIS field of view region and determining if it intersects with any of 
+the SNR source regions. This search yielded 615 individual observation sequences.
+The set of spectra and images was produced for all SNR observations in this
+list. The data reduction procedure and data products are described in the
+"Analysis" section.
+
+Further downselection were made to filter out observations irrelevant
+for the spectral analysis of the emission lines from SNRs.
+Namely, the data from featureless
+sources like the Crab or G21.5-0.9, observations dominated by unrelated
+sources or observations having strongly variable X-ray background 
+with the narrow lines (i. e. the observations near the Galactic Center and 
+Galactic Bulge).
+
+
+
+

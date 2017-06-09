@@ -1,0 +1,18 @@
+
+Data Analysis 
+======================================
+
+.. toctree::
+    
+    Data Reduction Procedure<procedure>
+    Line Identification<lineidtable>
+    Region Generation<regions>
+    Spectral Modeling<fitting>
+
+
+Data analysis for the SNR catalog combines the data reduction, which involves \
+source region generation, production of spectra and images, and fitting of the \
+spectra to obtain characteristics of the spectral lines. We describe how each \
+step si completed in a separate section.
+
+

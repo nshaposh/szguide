@@ -1,0 +1,253 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Suzaku SNR Catalog Guide</TITLE>
+<META NAME="description" CONTENT="Suzaku Archive Guide">
+<META NAME="keywords" CONTENT="archiveguide1">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="archiveguide1.css">
+
+<LINK REL="next" HREF="node1.html">
+<STYLE>
+.hlink {
+color:blue;
+cursor:pointer;
+text-decoration:underline;
+}
+
+.hlink:hover {
+cursor:pointer;
+
+}
+
+.link_button {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: solid 1px #20538D;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    background: #4479BA;
+    color: #FFF;
+    padding: 8px 12px;
+    text-decoration: none;
+}
+
+
+.contents_button {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: solid 1px #20538D;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    background: #444444;
+    color: #FFF;
+    padding: 8px 12px;
+    text-decoration: none;
+}
+
+
+
+.link_button:hover {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: solid 1px #20538D;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    background: #4479BA;
+    color: blue;
+    padding: 8px 12px;
+    text-decoration: none;
+    cursor:pointer;
+}
+
+</STYLE>
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<CENTER>
+<A NAME="tex2html9" id="prevbutton" onclick="load_prev();" class="link_button">Previous</A> 
+<A NAME="tex2html7"  onclick="load_page(-1);" class="contents_button">Contents</A>  
+<A NAME="tex2" id="nextbutton" onclick="load_next();" class="link_button">Next</A>
+</CENTER>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<P>
+
+<P>
+
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<DIV id="contents"></DIV>
+<BR><HR>
+<DIV id="text"></DIV>
+<BR><HR>
+
+<ADDRESS>
+Nikolai Shaposhnikov
+2016-06-29
+</ADDRESS>
+<script src="suzakucatalog.js"></script>
+<script>
+
+
+
+function load_page(page){
+    
+    current_page = page;
+    var d = document.getElementById("contents");
+    d.innerHTML = "";
+
+
+    if (page == -1) {
+    
+	d.innerHTML = "<BR><BR><BR><center><H1>Guide To Suzaku SNR Catalog</H1><BR><H3>Nikolai Shaposhnikov (UMD)</H3></center><BR><Br>";
+
+        var d = document.getElementById("text");
+        d.innerHTML = "";
+
+        var lis = document.createElement("UL");
+	npage = 0;
+        guide_content.forEach(function(s){
+    	
+    	    var n = document.createElement("LI");
+//    	    var lin = document.createElement("a");
+//    	    tn = document.createTextNode(s.title);
+//    	    lin.appendChild(tn);
+//    	    lin.onclick = "load_page("+npage+");";
+//	    lin.style.color = "blue";
+//	    lin.style.textDecoration = "underline";
+//    	    n.appendChild(lin);
+	    n.innerHTML = "<a onclick=\"load_page\("+npage+")\;\" class=\"hlink\">"+s.title+"</a>";
+    	    lis.appendChild(n);
+    	    npage ++;
+        });
+	d.appendChild(lis)
+	set_buttons(page);
+	return;
+    }
+    
+//    else {
+//        var page = "0";
+//    }
+
+
+    //var lis = document.createElement("UL");
+    
+    var section = guide_content[page];
+    //section.content.forEach(function(par){
+    //    var n = document.createElement("LI");
+    //    var lin = document.createElement("a");
+    //    tn = document.createTextNode(par.subtitle);
+    //    lin.appendChild(tn);
+    //    lin.href = "#"+par.name;
+    //    n.appendChild(lin);
+    //    lis.appendChild(n);
+    //});
+    //d.appendChild(lis);
+
+    var n = document.createElement("H1");
+    //var lin = document.createElement("a");
+    tn = document.createTextNode(section.title);
+    n.appendChild(tn);
+    d.appendChild(n);
+
+
+    var d = document.getElementById("text");
+    d.innerHTML = "";
+
+    section.content.forEach(function(par){
+	var n = document.createElement("H2");
+	var lin = document.createElement("a");
+	tn = document.createTextNode(par.subtitle);
+	lin.appendChild(tn);
+	lin.name = par.name;
+	n.appendChild(lin);
+	d.appendChild(n);
+	sp = document.createElement("p");
+	txt = "";
+	par.text.forEach(function(t){
+//	    var p = document.createElement("p");
+//	    txt = document.createTextNode(t);
+//	    p.appendChild(txt);
+	    txt = txt + t;
+	});
+	sp.innerHTML = txt;    
+	d.appendChild(sp);
+
+    });
+
+    set_buttons(page);
+}
+
+
+function set_buttons(page){
+    nextb = document.getElementById("nextbutton");
+    try {
+//	nextb.style.visibility="visible";
+	nextb.textContent = "Next: "+guide_content[page+1].title;
+    } catch(err) {
+	nextb.textContent = "";
+//	nextb.style.visibility="hidden";
+    }
+
+    prevb = document.getElementById("prevbutton");
+    try {
+	prevb.textContent = "Previous: "+guide_content[page-1].title;
+    } catch (err) {
+	prevb.textContent = "";
+	if (page == 0) {prevb.textContent = "Previous: Contents";}
+    }
+
+}
+
+
+var current_page = -1;
+load_page(current_page);
+
+function load_next(){
+
+    if (current_page == guide_content.length-1) {return;}
+    current_page = current_page +1;
+    load_page(current_page);
+};
+
+function load_prev(){
+
+    if (current_page == -1) {return;}
+    var d = document.getElementById("text");
+    d.innerHTML = "";
+    var d = document.getElementById("contents");
+    d.innerHTML = "";
+    current_page = current_page - 1;
+    load_page(current_page);
+};
+
+
+</script>
+
+</BODY>
+</HTML>

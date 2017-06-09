@@ -1,0 +1,46 @@
+
+Data Products Description
+======================================
+
+# Data products and naming conventions
+
+A particular Suzaku observation analysis in the catalog is a set of data products created for \
+a particular set of analysis script (aexispipe) setting. Therefore, there can be more than one \
+analyses for a particular observation. All data products for analysis reside in one directory \
+under the observation directory. The directory name is usually (but not necessarily) a name of \
+the region pattern, for example, analysis products for the "pie" regions are placed \
+under *<OBSID>/pie* directory.
+
+
+# File naming convention
+
+The data product files names follow the rules below:
+
+for spectral files -
+
+aeXXXXXXXXXiii_rNR_SSS_rB.pha,
+
+for ancillary response files -
+
+aeXXXXXXXXXiii_rNR_SSS.arf,
+
+for response matrix -
+
+aeXXXXXXXXXiii_SSS_rB.rmf,
+
+for region files -
+
+aeXXXXXXXXXiii_SSS_src.reg,
+
+for region files -
+
+aeXXXXXXXXXiii_SSS_src.img,
+
+where:
+
+    * ae is for Astro-E2, as for the archival files
+    * XXXXXXXXX is the 9 digit observation identifier (sequence number)
+    * NR is the region identifier, where N is the region number in a set between 0 and 8 
+    * R is the region pattern identifier, namely, S - for standard regions, P - for pie regions, A - for annuli, R -for SIMBAD regions.
+    * SSS is the source for spectrum. Namely, src - for total spectrum, nxb - for the NXB spectrum, sxb - for the NXB subtracted spectrum.
+    * B is rebinning indicator, i.e. a - original spectrum, b- rebinned spectrum.

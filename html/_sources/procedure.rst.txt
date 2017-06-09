@@ -1,0 +1,56 @@
+
+Data Reduction Procedure
+======================================
+
+To extract data products for the catalog we developed an automated analysis pipeline, \
+implemented as PERL script aexispipe. The particular analysis procedure is controlled \
+by the script parameters. Where appropriate, we give the corresponding analysis options, \
+which responsible for a certain analysis setting. We also list the analysis script \
+settings in a separate section below. The presented analysis attempts to perform XIS\
+data analysis as described in the Suzaku Data Reduction Guide (aka ''ABC Guide''). \
+Within this pipeline we have implemented the following analysis steps:
+
+1. Observation sequence data download via FTP and initial reprocessing with the \
+Suzaku FTOOL aepipeline.
+
+2. Clean event list production. This step involves filtering out events recorded \
+by flickering pixels. Regions, containing information on the flickering pixels \
+for particular XIS and CI mode are downloaded from JAXA page at \
+http://www.astro.isas.jaxa.jp/suzaku/analysis/xis/nxb_new/ and applied to the \
+reprocessed cleaned event files produced at the previous step. \
+
+3. Creating and smoothing  \
+XIS image.
+
+4. Generating the spectral extraction regions.5. Extract spectra for X-ray \
+source and background regions using xselect.
+
+6. Extract spectra and images of the XIS instrumental background commonly \
+referred to as a Non X-ray Background (NXB) using xisnxbgen. NXB event files \
+have also flickerring pixels removed using the region filtering. \
+For convenience and to speed up analysis we have produced pre-filtered NXB \
+event files from the files provided in the calibration database and use these \
+prefiltered files during the analysis.
+
+7. Create XIS detector response for the observation and ancillary response \
+(ARF) for the set of regions using xisrmfgen and xissimarfgen correspondingly. \
+Depending on a particular nature of the source we employ three different \
+prescriptions for the ARF calculations, which we refer to as "UNIFORM", \
+"POINT" and "IMAGE". In the first ("UNIFORM" source) approach, the source \ 
+is assumed to be uniform over the sky. Actual ray-tracing simulations in \
+xissimarfgen models the 3×106 input photons coming from the sky region \
+extending 20 arc seconds beyond the XIS field of view. In the "POINT" \
+prescription, we assume a point source at the specified object sky location \ 
+and model 4×105 photons. In the last, i.e. "IMAGE" setting, the actual XIS \
+source image is supplied as source configuration and 3×106 are simulated.
+
+8. Produce rebinned spectra and responses using the standard binning \
+pattern. Namely, 4096 unbinned channels are rebinned to 2048 channels \
+by binning channels between 700 and 2696 with factor of 2 and channels \
+between 2696 and 4096 with factor of 4. We perform this step using rbnpha \
+and rbnrmf FTOOLs respectively.
+
+9. NXB subtracted spectra are produced by subtracting the source spectra \
+and NXB spectra with mathpha FTOOL.
+
+

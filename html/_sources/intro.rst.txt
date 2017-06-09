@@ -1,0 +1,26 @@
+
+Introduction
+======================================
+
+The Suzaku SNR Catalog is provides a comprehesive analysis of Suzaku XIS data on
+supernova remnant (SNR) sources. An attempt is made to provide a coherent data products 
+and analysis for the entire set of Suzaku observations of SNRs. Catalog provides
+a web interface to access the data products and the analysis results. The list of 
+the detected emission line list is also provided as the HEASARC table, where the
+basic line properites are accompanied by additional information on the source, i.e its
+type, presence of a pulsar, source coverage, observation region, etc.
+
+
+The analysis product includes images, spectra and spectral analysis. 
+Spectra are modeled as a sum of power law and a set gaussians. 
+The results of spectral modeling are provided as table of individual spectral lines.
+Currently catalog contains analysis of 615 Suzaku observations of 161 sources. 
+
+Each observation has one or more analysis results, performed 
+for a particular region nselction.  An individual page is provided 
+for each analysis, which features line list for this analysis
+and spectral plots.
+
+In the next two setions we describe the source selection and Suzaku observation 
+analysis procedure for the catalog 
+in more detail.
